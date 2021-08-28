@@ -16,7 +16,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: url(sew3.webp)no-repeat;
+    background: url(images/sew3.webp)no-repeat;
     background-size: cover;
     background-position: center;
 }
