@@ -9,10 +9,11 @@ const app = express();
 const port = 3000;
 
 const dbURI = 'mongodb+srv://Alaref:2212000@cluster0.atouh.mongodb.net/subs?retryWrites=true&w=majority'
-mongoose.connect(dbURI , { useNewUrlParser: true ,  useUnifiedTopology: true})
+mongoose.connect(dbURI , { useNewUrlParser: true ,  useUnifiedTopology: true});
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use((req,res , next) => {
     console.log('---------- NEW REQUEST MADE ----------');

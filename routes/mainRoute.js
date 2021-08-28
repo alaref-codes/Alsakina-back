@@ -17,10 +17,12 @@ router.post('' , (req,res) => {
 
 router.get('/subs', (req,res) => {
     Sub.find()
-    .then(result => {
+    .select('email')
+    .then(docs => {
         res.status(200).json({
             message: 'All the subsicribers',
-            result: result
+            count: docs.length,
+            result: docs
         })
     })
     .catch(err => {
@@ -30,6 +32,22 @@ router.get('/subs', (req,res) => {
         })
     })
 })
+
+router.get('/subs/:id', (req,res) => {
+    const id = req.params.id;
+
+    Sub.findByIdAndDelete(id)
+        .then( result => {
+            res.status(200).json({
+                message: "The sub is deleted successfully"
+            });
+        })
+        .catch( err => {
+            console.log(err);
+        })
+})
+
+
 
 
 
